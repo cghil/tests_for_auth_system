@@ -1,10 +1,10 @@
-task :test do
-	ruby 'selenium.rb'
+namespace :selenium do
+	desc "User tests"
+	task :login do
+		ruby "test/user.rb"
+	end
 end
 
-namespace :test do
-	desc "Log in user"
-	task :login do
-		ruby "test/signin.rb"
-	end
+task :practice do
+	ruby "selenium.rb"
 end
