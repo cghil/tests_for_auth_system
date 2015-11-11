@@ -1,5 +1,6 @@
 require 'selenium-webdriver'
 require 'test/unit'
+require 'pry'
 
 class UserTests < Test::Unit::TestCase
 	def setup
@@ -87,6 +88,7 @@ class UserTests < Test::Unit::TestCase
 		password_confirmation_input.send_keys('543210')
 		assert(errors.text.include?("Password confirmation is too short"))
 		assert(errors.text.include?("Passwords do NOT match"))
+		assert_equal(errors.displayed?, true)
 
 		@wait.until do
 			password_confirmation_input.clear()
